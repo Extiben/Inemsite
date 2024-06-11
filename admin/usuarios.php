@@ -76,26 +76,37 @@ if (empty($_SESSION["id"])) {
       </tr>
     </thead>
 <?php
-include("../includes/conexion.php");              
+// Incluimos la conexion a la base de datos
+include("../includes/conexion.php");
+
+//Ejecutar la consulta SQL para obtener todos los registros de la tabla "usuarios"
 $sql = $conexion->query("SELECT * FROM usuarios ");
+
+//Verifica si la consulta tiene al menos 1 registro
 if($sql -> num_rows >0){
+    //Los resultados de la consulta se convierten en objetos, cada objeto representa un registro
     while($fila = $sql->fetch_object()){
-?>
+
+
+// Mostrar los datos de cada usuario en una fila de la tabla
+echo "
 <tr>
-  <td><?php echo $fila->Idusuario; ?></td>
-  <td><?php echo $fila->correo; ?></td>
-  <td><?php echo $fila->nombre; ?></td>
-  <td><?php echo $fila->apellido; ?></td>
-  <td><?php echo $fila->usuario; ?></td>
-  <td><?php echo $fila->contrasena; ?></td>
-  <td><?php echo $fila->numero_documento; ?></td>
-  <td><?php echo $fila->tipo_documento; ?></td>
-  <td><?php if ($fila->idrol == 1) {
+  <td>$fila->Idusuario</td>
+  <td>$fila->correo</td>
+  <td>$fila->nombre</td>
+  <td>$fila->apellido</td>
+  <td>$fila->usuario</td>
+  <td>$fila->contrasena</td>
+  <td>$fila->numero_documento</td>
+  <td>$fila->tipo_documento</td>
+  <td>";
+  if ($fila->idrol == 1) {
     echo "Administrador";
   }else {
     echo "Cliente";
   }; 
-  ?></td>
+  ?>
+  </td>
   <td>
     <a class="btn btn-warning" name="editar" href="editar.php?id=<?php echo $fila->Idusuario; ?>"><i class="bi bi-pencil"></i></a>
     <a class="btn btn-danger" name="eliminar" href="eliminar.php?id=<?php echo $fila->Idusuario?>"><i class="bi bi-trash3"></i></a>
