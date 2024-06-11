@@ -88,7 +88,7 @@ if($sql -> num_rows >0){
     while($fila = $sql->fetch_object()){
 
 
-// Mostrar los datos de cada usuario en una fila de la tabla
+//Accedemos al valor de los campos en el objeto fila
 echo "
 <tr>
   <td>$fila->Idusuario</td>
