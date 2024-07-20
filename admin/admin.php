@@ -62,6 +62,37 @@ if (empty($_SESSION["id"])) {
     <h1 class="p-3 fs-2 border-top border-3 text-custom-title">Hola <?php echo $_SESSION["nombre"] . " " . $_SESSION["apellido"];?> Bienvenido a Inemsite</h1>
     <p>Te damos la bienvenida a la plataforma de reservas de salas de informatica, estamos encargados de ofrecerte a ti como usuario una experiencia gratificante. </p>
 </section>
+<section>
+  <div class="container">
+    <button class="button" onclick="location.href='reservas.php'">RESERVAR AULA</button>
+    <button class="button" onclick="location.href='misreservas.php'">MIS RESERVAS</button>
+    <button class="button" onclick="location.href='usuarios.php'">VER LISTA DE USUARIOS</button>
+  </div>
+  <style>
+    .container{
+      display: grid;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+      width: 100%;
+    }
+    .button{
+      padding: 30px;
+            background-color: #78C9F5;
+            border-radius: 20px;
+            font-size: 20px;
+            transition-duration: 0.3s;
+    }
+    .button:hover{
+      background-color:#D5E4F9;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .button:active{
+      background-color:#FFFFFF;
+    }
+  </style>
+</section>
     <script src="../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
